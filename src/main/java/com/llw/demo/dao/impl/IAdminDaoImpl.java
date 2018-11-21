@@ -2,11 +2,12 @@ package com.llw.demo.dao.impl;
 
 import com.llw.base.BaseJpaDao;
 import com.llw.demo.dao.IAdminDao;
-import com.llw.demo.dto.UserWithWalletDto;
 import com.llw.demo.entity.Admin;
 import com.llw.dto.PagingDto;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,24 +18,52 @@ import java.util.List;
 @Repository
 public class IAdminDaoImpl extends BaseJpaDao<Admin> implements IAdminDao {
 
-    @SuppressWarnings("unchecked")
     @Override
-    public PagingDto query(int pageNo, int pageSize, String name) throws Exception {
-        List<UserWithWalletDto> userDtoTypedQuery = entityManager.createQuery(
-                "select new com.llw.demo.dto.UserWithWalletDto(u.id, u.name, w) from User u left join Wallet w on w.userId=u.id").getResultList();
+    public void add(Admin admin) throws Exception {
+        super.save(admin);
+    }
 
-        System.out.println(userDtoTypedQuery);
+    @Override
+    public Admin get(long id) throws Exception {
+        return super.findById(id);
+    }
 
-//        System.out.println(userDtos);
-//        for (Object obj : userDtos) {
-//            Object[] os = (Object[]) obj;
-//            System.out.println("======");
-//            for (Object o : os) {
-//                System.out.println(o);
-//            }
-//        }
+    @Override
+    public Admin findByAccountAndPassword(String account, String password) throws Exception {
 
-        return null;
+        List<Admin> admins = super.findQuick(" and account=?1 and password=?2", account, password);
+
+        return admins.size() != 0 ? admins.get(0) : null;
+    }
+
+    @Override
+    public List<Admin> findByAccount(String account) throws Exception {
+        return super.findQuick(" and account=?1", account);
+    }
+
+    @Override
+    public PagingDto<Admin> query(int pageNo, int pageSize, String name, Boolean active, Date beginCreateTime, Date endCreateTime) throws Exception {
+        StringBuilder jpql = new StringBuilder();
+        List<Object> params = new ArrayList<>();
+
+        if (name != null && !"".equals(name)) {
+            params.add("%" + name + "%");
+            jpql.append(" and name like ?" + params.size());
+        }
+        if (active != null) {
+            params.add(active);
+            jpql.append(" and active=?" + params.size());
+        }
+        if (beginCreateTime != null) {
+            params.add(beginCreateTime);
+            jpql.append(" and createTime>=?" + params.size());
+        }
+        if (endCreateTime != null) {
+            params.add(endCreateTime);
+            jpql.append(" and createTime<=?" + params.size());
+        }
+
+        return super.pagingQuickIdDesc(jpql.toString(), pageNo, pageSize, params.toArray());
     }
 
 }

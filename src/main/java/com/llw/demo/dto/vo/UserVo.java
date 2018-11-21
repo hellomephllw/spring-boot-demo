@@ -11,8 +11,6 @@ import lombok.Data;
 @Data
 public class UserVo extends BaseVo {
 
-    private long id;
-
     private String name;
 
 }

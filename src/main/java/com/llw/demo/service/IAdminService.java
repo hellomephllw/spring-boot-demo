@@ -12,8 +12,12 @@ import java.util.Date;
  */
 public interface IAdminService {
 
+    public void add(String account, String name) throws Exception;
+
     public Admin login(String account, String password) throws Exception;
 
-    public PagingDto query(int pageNo, int pageSize, String name, Boolean active, Date createTime) throws Exception;
+    public boolean accountExist(String account) throws Exception;
+
+    public PagingDto<Admin> query(int pageNo, int pageSize, String name, Boolean active, Date beginCreateTime, Date endCreateTime) throws Exception;
 
 }

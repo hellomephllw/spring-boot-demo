@@ -1,5 +1,6 @@
 package com.llw.demo.dto.vo;
 
+import com.llw.base.BaseVo;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -10,9 +11,7 @@ import java.math.BigDecimal;
  * @date: 2018-11-21
  */
 @Data
-public class UserWithWalletVo {
-
-    private long id;
+public class UserWithWalletVo extends BaseVo {
 
     private String name;
 
