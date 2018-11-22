@@ -41,8 +41,28 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
+//生成基础代码task
 task generateBasicCode (type: JavaExec, dependsOn: classes) {
 	main = 'com.llw.express.code.BasicCodeGenerator'
 	classpath = sourceSets.main.compileClasspath
 	args basePackagePath
+}
+
+//生成表格task(开发环境)
+task generateTableDev (type: JavaExec, dependsOn: classes) {
+	main = 'com.llw.express.persist.mysql.TableGenerator'
+	classpath = sourceSets.main.compileClasspath
+	args 'dev'
+}
+//生成表格task(测试环境)
+task generateTableTest (type: JavaExec, dependsOn: classes) {
+	main = 'com.llw.express.persist.mysql.TableGenerator'
+	classpath = sourceSets.main.compileClasspath
+	args 'test'
+}
+//生成表格task(生产环境)
+task generateTableProd (type: JavaExec, dependsOn: classes) {
+	main = 'com.llw.express.persist.mysql.TableGenerator'
+	classpath = sourceSets.main.compileClasspath
+	args 'prod'
 }
