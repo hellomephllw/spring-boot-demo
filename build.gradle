@@ -40,3 +40,9 @@ dependencies {
 	compileOnly("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
+
+task generateBasicCode (type: JavaExec, dependsOn: classes) {
+	main = 'com.llw.express.code.BasicCodeGenerator'
+	classpath = sourceSets.main.compileClasspath
+	args basePackagePath
+}
