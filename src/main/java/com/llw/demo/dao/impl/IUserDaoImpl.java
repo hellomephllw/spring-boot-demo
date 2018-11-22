@@ -5,6 +5,7 @@ import com.llw.demo.dao.IUserDao;
 import com.llw.demo.dto.UserWithWalletDto;
 import com.llw.demo.entity.User;
 import com.llw.dto.PagingDto;
+import com.llw.util.StringSql;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -46,11 +47,11 @@ public class IUserDaoImpl extends BaseJpaDao<User> implements IUserDao {
 
     @Override
     public PagingDto<User> query(int pageNo, int pageSize, String name) throws Exception {
-        StringBuilder jpql = new StringBuilder();
+        StringSql jpql = new StringSql();
         List<Object> params = new ArrayList<>();
 
         if (name != null && !"".equals(name)) {
-            jpql.append(" and name like ?1");
+            jpql.add(" and name like ?");
             params.add("%" + name + "%");
         }
 

@@ -4,6 +4,7 @@ import com.llw.base.BaseJpaDao;
 import com.llw.demo.dao.IAdminDao;
 import com.llw.demo.entity.Admin;
 import com.llw.dto.PagingDto;
+import com.llw.util.StringSql;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -43,24 +44,24 @@ public class IAdminDaoImpl extends BaseJpaDao<Admin> implements IAdminDao {
 
     @Override
     public PagingDto<Admin> query(int pageNo, int pageSize, String name, Boolean active, Date beginCreateTime, Date endCreateTime) throws Exception {
-        StringBuilder jpql = new StringBuilder();
+        StringSql jpql = new StringSql();
         List<Object> params = new ArrayList<>();
 
         if (name != null && !"".equals(name)) {
+            jpql.add(" and name like ?");
             params.add("%" + name + "%");
-            jpql.append(" and name like ?" + params.size());
         }
         if (active != null) {
+            jpql.add(" and active=?");
             params.add(active);
-            jpql.append(" and active=?" + params.size());
         }
         if (beginCreateTime != null) {
+            jpql.add(" and createTime>=?");
             params.add(beginCreateTime);
-            jpql.append(" and createTime>=?" + params.size());
         }
         if (endCreateTime != null) {
+            jpql.add(" and createTime<=?");
             params.add(endCreateTime);
-            jpql.append(" and createTime<=?" + params.size());
         }
 
         return super.pagingQuickIdDesc(jpql.toString(), pageNo, pageSize, params.toArray());
