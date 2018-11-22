@@ -6,7 +6,7 @@ import com.llw.dto.PagingDto;
 import java.util.Date;
 
 /**
- * @discription:
+ * @description:
  * @author: llw
  * @date: 2018-11-15
  */

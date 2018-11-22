@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import java.sql.Date;
 
 /**
- * @discription:
+ * @description:
  * @author: llw
  * @date: 2018-11-15
  */

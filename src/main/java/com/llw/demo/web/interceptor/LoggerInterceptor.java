@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 
 /**
- * @discription: 日志拦截器
+ * @description: 日志拦截器
  * @author: llw
  * @date: 2018-11-15
  */

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * @discription: 全局异常处理器
+ * @description: 全局异常处理器
  * @author: llw
  * @date: 2018-11-15
  */
