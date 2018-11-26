@@ -5,16 +5,18 @@ import com.llw.demo.dao.IWalletDao;
 import com.llw.demo.entity.Wallet;
 import com.llw.dto.PagingDto;
 import com.llw.util.StringSql;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * @description:
- * @author: llw
- * @date: 2018-11-22
- */
+* @description:
+* @author: liliwen
+* @date: 2018-11-22
+*/
+@Repository
 public class IWalletDaoImpl extends BaseJpaDao<Wallet> implements IWalletDao {
 
     @Override
@@ -23,8 +25,18 @@ public class IWalletDaoImpl extends BaseJpaDao<Wallet> implements IWalletDao {
     }
 
     @Override
+    public void addBatch(List<Wallet> wallets) throws Exception {
+        super.saveBatch(wallets);
+    }
+
+    @Override
     public void remove(long id) throws Exception {
         super.deleteById(id);
+    }
+
+    @Override
+    public void removeByIds(List<Long> ids) throws Exception {
+        super.deleteByIds(ids);
     }
 
     @Override
@@ -35,6 +47,11 @@ public class IWalletDaoImpl extends BaseJpaDao<Wallet> implements IWalletDao {
     @Override
     public void update(Wallet wallet) throws Exception {
         super.update(wallet);
+    }
+
+    @Override
+    public void update(List<Wallet> wallets) throws Exception {
+        super.updateBatch(wallets);
     }
 
     @Override
@@ -58,6 +75,11 @@ public class IWalletDaoImpl extends BaseJpaDao<Wallet> implements IWalletDao {
     @Override
     public List<Wallet> findAll() throws Exception {
         return super.findQuickIdDesc("");
+    }
+
+    @Override
+    public List<Wallet> findByIds(List<Long> ids) throws Exception {
+        return super.findByIds(ids);
     }
 
 }

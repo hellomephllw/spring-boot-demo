@@ -1,30 +1,28 @@
-package com.llw.demo.entity;
+package com.llw.demo.entity.merchant;
 
 import com.llw.base.BaseEntity;
 import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
-import java.math.BigDecimal;
 
 /**
  * @description:
  * @author: llw
- * @date: 2018-11-15
+ * @date: 2018-11-24
  */
 @Entity
-@Table(name = "demo_wallet")
+@Table(name = "demo_new")
 @Data
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper=true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class Wallet extends BaseEntity {
+public class New extends BaseEntity {
 
-    @Column(precision = 12, scale = 2)
-    private BigDecimal money = new BigDecimal(0);
-    @Column
-    private long userId;
+    @Column(columnDefinition = "text", nullable = false)
+    private String content;//富文本内容的单位(包括blob也这样定义)
 
 }

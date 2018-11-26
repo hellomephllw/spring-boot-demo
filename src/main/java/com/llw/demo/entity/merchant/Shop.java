@@ -21,9 +21,9 @@ import javax.persistence.Table;
 @NoArgsConstructor
 public class Shop extends BaseEntity {
 
-    @Column
+    @Column(length = 30, unique = true, nullable = false)
     private String name;
-    @Column
+    @Column(length = 50, nullable = false)
     private String address;
 
 }

@@ -23,14 +23,14 @@ import java.sql.Date;
 public class Admin extends BaseEntity {
 
     @Column
-    private Date createTime;
+    private Date createTime;//在数据库时间都默认存储为timestamp
     @Column
-    private Boolean active;
-    @Column
+    private boolean active = false;//指定默认值
+    @Column(length = 25, nullable = false)
     private String name;
-    @Column
+    @Column(length = 30, nullable = false, unique = true)
     private String account;
-    @Column
+    @Column(length = 50, nullable = false)
     private String password;
 
 }

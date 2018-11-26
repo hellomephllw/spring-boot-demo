@@ -21,7 +21,9 @@ import javax.persistence.Table;
 @EqualsAndHashCode(callSuper=true)
 public class User extends BaseEntity {
 
-    @Column
+    @Column(length = 30, nullable = false)
     private String name;
+    @Column(length = 20, nullable = false, unique = true)
+    private String nickname;
 
 }
