@@ -1,5 +1,6 @@
 package com.llw.demo.service;
 
+import com.llw.demo.dto.AdminTokenDto;
 import com.llw.demo.entity.Admin;
 import com.llw.dto.PagingDto;
 
@@ -14,7 +15,7 @@ public interface IAdminService {
 
     public void add(String account, String name) throws Exception;
 
-    public Admin login(String account, String password) throws Exception;
+    public AdminTokenDto login(String account, String password) throws Exception;
 
     public boolean accountExist(String account) throws Exception;
 

@@ -1,16 +1,20 @@
 package com.llw.demo.service.impl;
 
+import com.llw.demo.cache.AuthToken;
+import com.llw.demo.constant.AuthTypeConst;
+import com.llw.demo.constant.CacheTimeConst;
+import com.llw.demo.constant.RedisKey;
 import com.llw.demo.dao.IAdminDao;
+import com.llw.demo.dto.AdminTokenDto;
 import com.llw.demo.entity.Admin;
 import com.llw.demo.service.IAdminService;
+import com.llw.demo.service.IAuthTokenService;
 import com.llw.dto.PagingDto;
 import com.llw.exception.BussinessException;
-import com.llw.util.CollectionUtil;
+import com.llw.redis.RedisAccess;
 import com.llw.util.DateUtil;
-import com.llw.util.PagingUtil;
 import com.llw.util.RegexUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,6 +31,8 @@ public class IAdminServiceImpl implements IAdminService {
 
     @Autowired
     private IAdminDao adminDao;
+    @Autowired
+    private IAuthTokenService authTokenService;
 
     @Override
     public void add(String account, String name) throws Exception {
@@ -45,11 +51,24 @@ public class IAdminServiceImpl implements IAdminService {
     }
 
     @Override
-    public Admin login(String account, String password) throws Exception {
+    public AdminTokenDto login(String account, String password) throws Exception {
         if (account == null || "".equals(account)) throw new BussinessException("账号不能为空");
         if (password == null || "".equals(password)) throw new BussinessException("密码不能为空");
 
-        return adminDao.findByAccountAndPassword(account, password);
+        Admin admin = adminDao.findByAccountAndPassword(account, password);
+
+        if (admin != null) {
+            //生成token
+            String token = RedisKey._MANAGE_TOKEN;
+            authTokenService.add(token, AuthTypeConst._MANAGE_ADMIN, CacheTimeConst._MANAGE_ADMIN_EXPIRE);
+
+            //返回token
+            AdminTokenDto adminTokenDto = new AdminTokenDto();
+            adminTokenDto.setToken(token);
+            return adminTokenDto;
+        }
+
+        return null;
     }
 
     @Override

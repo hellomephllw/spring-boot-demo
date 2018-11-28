@@ -1,6 +1,7 @@
 package com.llw.demo.web.controller;
 
 import com.llw.base.ResultVo;
+import com.llw.demo.dto.AdminTokenDto;
 import com.llw.demo.dto.vo.AdminVo;
 import com.llw.demo.entity.Admin;
 import com.llw.demo.service.IAdminService;
@@ -11,9 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import springfox.documentation.annotations.ApiIgnore;
 
-import javax.servlet.http.HttpSession;
 import java.util.Date;
 
 /**
@@ -30,15 +29,12 @@ public class AdminController {
 
     @PostMapping("/login")
     public ResultVo login(@RequestParam String account,
-                          @RequestParam String password,
-                          @ApiIgnore HttpSession session) throws Exception {
+                          @RequestParam String password) throws Exception {
 
-        Admin admin = adminService.login(account, password);
+        AdminTokenDto adminTokenDto = adminService.login(account, password);
 
-        if (admin != null) {
-            //todo session
-
-            return new ResultVo<>(1, "登陆成功", null);
+        if (adminTokenDto != null) {
+            return new ResultVo<>(1, "登陆成功", adminTokenDto);
         }
 
         return new ResultVo<>(0, "登陆失败", null);
