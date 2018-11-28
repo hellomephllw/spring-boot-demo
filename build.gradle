@@ -28,6 +28,7 @@ repositories {
 project.ext {
 	expressVersion = '1.0.0'
 	aliJsonVersion = '1.1.15'
+	swaggerVersion = '2.9.2'
 }
 
 dependencies {
@@ -37,6 +38,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-redis")
 	implementation("com.llw:express:$expressVersion")
 	implementation("com.alibaba:fastjson:$aliJsonVersion")
+	implementation("io.springfox:springfox-swagger2:$swaggerVersion")
+	implementation("io.springfox:springfox-swagger-ui:$swaggerVersion")
 	runtimeOnly("mysql:mysql-connector-java")
 	compileOnly("org.projectlombok:lombok")
 	testCompile("org.projectlombok:lombok")
