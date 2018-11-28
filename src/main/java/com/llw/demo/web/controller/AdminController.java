@@ -46,11 +46,11 @@ public class AdminController {
 
     @PostMapping("/query")
     public ResultVo query(@RequestParam int pageNo,
-                           @RequestParam int pageSize,
-                           @RequestParam(required = false) String name,
-                           @RequestParam(required = false) Boolean active,
-                           @RequestParam(required = false) Date beginCreateTime,
-                           @RequestParam(required = false) Date endCreateTime) throws Exception {
+                          @RequestParam int pageSize,
+                          @RequestParam(required = false) String name,
+                          @RequestParam(required = false) Boolean active,
+                          @RequestParam(required = false) Date beginCreateTime,
+                          @RequestParam(required = false) Date endCreateTime) throws Exception {
 
         PagingDto<Admin> pagingDto = adminService.query(pageNo, pageSize, name, active, beginCreateTime, endCreateTime);
 

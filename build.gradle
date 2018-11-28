@@ -34,10 +34,12 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-jdbc")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-data-redis")
 	implementation("com.llw:express:$expressVersion")
 	implementation("com.alibaba:fastjson:$aliJsonVersion")
 	runtimeOnly("mysql:mysql-connector-java")
 	compileOnly("org.projectlombok:lombok")
+	testCompile("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

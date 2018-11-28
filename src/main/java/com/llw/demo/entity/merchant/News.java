@@ -20,7 +20,7 @@ import javax.persistence.Table;
 @EqualsAndHashCode(callSuper=true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class New extends BaseEntity {
+public class News extends BaseEntity {
 
     @Column(columnDefinition = "text", nullable = false)
     private String content;//富文本内容的单位(包括blob也这样定义)
