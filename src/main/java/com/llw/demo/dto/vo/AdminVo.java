@@ -12,7 +12,7 @@ import java.util.Date;
  * @author: llw
  * @date: 2018-11-21
  */
-@ApiModel(value = "管理端-管理员")
+@ApiModel(value = "管理端-管理员值对象")
 @Data
 public class AdminVo extends BaseVo {
 

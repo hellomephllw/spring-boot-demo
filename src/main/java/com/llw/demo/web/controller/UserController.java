@@ -1,6 +1,7 @@
 package com.llw.demo.web.controller;
 
 import com.llw.base.ResultVo;
+import com.llw.demo.dto.AdminTokenDto;
 import com.llw.demo.dto.UserWithWalletDto;
 import com.llw.demo.dto.vo.UserVo;
 import com.llw.demo.dto.vo.UserWithWalletVo;
@@ -9,6 +10,8 @@ import com.llw.demo.service.IUserService;
 import com.llw.dto.PagingDto;
 import com.llw.util.ObjectUtil;
 import com.llw.util.PagingUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +26,7 @@ import java.util.List;
  * @author: llw
  * @date: 2018-11-15
  */
+@Api(value = "UserController", description = "管理端-用户模块")
 @RestController
 @RequestMapping("/api/manage/user")
 public class UserController {
@@ -30,6 +34,7 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
+    @ApiOperation(value = "添加", response = ResultVo.class)
     @PostMapping("/add")
     public ResultVo add(@RequestParam String name) throws Exception {
 
@@ -38,6 +43,7 @@ public class UserController {
         return new ResultVo<>(1, "添加成功", null);
     }
 
+    @ApiOperation(value = "删除", response = ResultVo.class)
     @PostMapping("/remove")
     public ResultVo remove(@RequestParam long id) throws Exception {
 
@@ -46,6 +52,7 @@ public class UserController {
         return new ResultVo<>(1, "删除成功", null);
     }
 
+    @ApiOperation(value = "修改", response = ResultVo.class)
     @PostMapping("/modify")
     public ResultVo modify(@RequestParam long id,
                            @RequestParam String name) throws Exception {
@@ -55,12 +62,14 @@ public class UserController {
         return new ResultVo<>(1, "修改成功", null);
     }
 
+    @ApiOperation(value = "获取用户", response = UserVo.class)
     @PostMapping("/get")
     public ResultVo get(@RequestParam long id) throws Exception {
 
         return new ResultVo<>(1, "", ObjectUtil.transferObjectValToAnother(userService.get(id), UserVo.class));
     }
 
+    @ApiOperation(value = "用户分页查询", response = UserVo.class, responseContainer = "List")
     @PostMapping("/query")
     public ResultVo query(@RequestParam int pageNo,
                           @RequestParam int pageSize,
@@ -71,6 +80,7 @@ public class UserController {
         return new ResultVo<>(1, "", PagingUtil.transformPagingDtoToVo(pagingDto, UserVo.class, pageNo, pageSize));
     }
 
+    @ApiOperation(value = "查询所有用户", response = UserVo.class, responseContainer = "List")
     @PostMapping("/findAll")
     public ResultVo findAll() throws Exception {
 
@@ -82,6 +92,7 @@ public class UserController {
         return new ResultVo<>(1, "", userVos);
     }
 
+    @ApiOperation(value = "查询用户钱包", response = UserWithWalletVo.class, responseContainer = "List")
     @PostMapping("/findAllUserWithWallet")
     public ResultVo findAllUserWithWallet() throws Exception {
 
