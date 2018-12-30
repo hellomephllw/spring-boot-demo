@@ -31,3 +31,8 @@ spring:
         password: xxxx
         default-encoding: UTF-8
         fromAddr: 402380042@qq.com
+
+log:
+    level: info
+    basePath: .
+    outputLogFile: false

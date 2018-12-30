@@ -29,6 +29,7 @@ project.ext {
 	expressVersion = '1.0.0'
 	aliJsonVersion = '1.1.15'
 	swaggerVersion = '2.9.2'
+	janinoVersion = '2.6.1'
 }
 
 dependencies {
@@ -42,6 +43,7 @@ dependencies {
 	implementation("com.alibaba:fastjson:$aliJsonVersion")
 	implementation("io.springfox:springfox-swagger2:$swaggerVersion")
 	implementation("io.springfox:springfox-swagger-ui:$swaggerVersion")
+	implementation("org.codehaus.janino:janino:$janinoVersion")
 	runtimeOnly("mysql:mysql-connector-java")
 	compileOnly("org.projectlombok:lombok")
 	testCompile("org.projectlombok:lombok")
