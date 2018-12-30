@@ -2,6 +2,7 @@ package com.llw.demo;
 
 import com.llw.demo.dao.*;
 import com.llw.demo.service.IAdminService;
+import com.llw.demo.service.IMailService;
 import com.llw.demo.service.IUserService;
 import com.llw.redis.RedisAccess;
 import com.llw.util.CollectionUtil;
@@ -34,24 +35,15 @@ public class DemoApplicationTests {
 	@Autowired
 	private RedisAccess redisAccess;
 
+	@Autowired
+	private IMailService mailService;
+
 	@Test
 	public void contextLoads() {
 		try {
-			redisAccess.putObject("bbcc",
-					CollectionUtil.fieldMap()
-							.put("name", "b")
-							.put("age", 18)
-							.build()
-			);
-
-//			redisAccess.removeObject("bbcc");
-
-//			redisAccess.removeObjectField("bbcc", "name");
-
-			System.out.println(redisAccess.existObjectField("bbcc", "name1"));
-
-//			Human human = redisAccess.getObject("bbcc1", Human.class);
-//			System.out.println(human);
+//			mailService.sendSimpleMail("hellomephllw@163.com", "测试主题1", "测试的邮件内容");
+//			mailService.sendAttachmentsMail("hellomephllw@163.com", "测试主题2", "测试的邮件内容");
+//			mailService.sendInlineResourceMail("hellomephllw@163.com", "测试主题3", "测试的邮件内容");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

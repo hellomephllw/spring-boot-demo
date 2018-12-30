@@ -36,6 +36,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-jdbc")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-data-redis")
+	implementation("org.springframework.boot:spring-boot-starter-mail")
+	implementation("org.springframework.boot:spring-boot-starter-freemarker")
 	implementation("com.llw:express:$expressVersion")
 	implementation("com.alibaba:fastjson:$aliJsonVersion")
 	implementation("io.springfox:springfox-swagger2:$swaggerVersion")

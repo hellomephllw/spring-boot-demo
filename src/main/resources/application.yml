@@ -25,3 +25,9 @@ spring:
         properties:
             hibernate:
                 dialect: org.hibernate.dialect.MySQL5Dialect
+    mail:
+        host: smtp.qq.com
+        username: 402380042@qq.com
+        password: xxxx
+        default-encoding: UTF-8
+        fromAddr: 402380042@qq.com
