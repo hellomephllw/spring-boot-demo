@@ -25,5 +25,7 @@ public class User extends BaseEntity {
     private String name;
     @Column(length = 20, nullable = false, unique = true)
     private String nickname;
+    @Column(nullable = false)
+    private byte age;
 
 }

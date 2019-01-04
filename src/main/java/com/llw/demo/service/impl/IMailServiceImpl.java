@@ -28,7 +28,7 @@ public class IMailServiceImpl implements IMailService {
 
     @Override
     public void sendInlineResourceMail(String toAddr, String subject, String content) throws Exception {
-        MailUtil.sendInlineResourceMail(mailSender, fromAddr, toAddr, subject, content);
+        MailUtil.sendInlineResourceMail(mailSender, fromAddr, toAddr, subject, content, "");
     }
 
     @Override
