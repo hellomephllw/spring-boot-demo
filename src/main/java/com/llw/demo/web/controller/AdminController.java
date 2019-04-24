@@ -1,24 +1,8 @@
 package com.llw.demo.web.controller;
 
-import com.happy.base.ResultVo;
-import com.llw.demo.dto.AdminTokenDto;
-import com.llw.demo.dto.vo.AdminVo;
-import com.llw.demo.entity.Admin;
-import com.llw.demo.service.IAdminService;
-import com.happy.dto.PagingDto;
-import com.happy.util.PagingUtil;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import springfox.documentation.annotations.ApiIgnore;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
 
 /**
  * @description:

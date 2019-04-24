@@ -1,15 +1,7 @@
 package com.llw.demo.service.impl;
 
-import com.llw.demo.dto.UserWithWalletDto;
-import com.llw.demo.entity.User;
-import com.llw.demo.service.IUserService;
-import com.happy.dto.PagingDto;
-import com.happy.exception.BusinessException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 /**
  * @description:

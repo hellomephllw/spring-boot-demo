@@ -1,4 +1,4 @@
-package com.llw.demo.dto.vo;
+package com.llw.demo.transfer.vo;
 
 import com.happy.base.BaseVo;
 import io.swagger.annotations.ApiModel;

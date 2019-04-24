@@ -1,10 +1,9 @@
 package com.llw.demo.web.controller;
 
 import com.happy.base.ResultVo;
-import com.llw.demo.dto.AdminTokenDto;
-import com.llw.demo.dto.UserWithWalletDto;
-import com.llw.demo.dto.vo.UserVo;
-import com.llw.demo.dto.vo.UserWithWalletVo;
+import com.llw.demo.transfer.UserWithWalletDto;
+import com.llw.demo.transfer.vo.UserVo;
+import com.llw.demo.transfer.vo.UserWithWalletVo;
 import com.llw.demo.entity.User;
 import com.llw.demo.service.IUserService;
 import com.happy.dto.PagingDto;

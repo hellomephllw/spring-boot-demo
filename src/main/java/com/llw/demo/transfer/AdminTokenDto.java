@@ -1,4 +1,4 @@
-package com.llw.demo.dto;
+package com.llw.demo.transfer;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

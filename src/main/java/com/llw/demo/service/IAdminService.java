@@ -1,6 +1,6 @@
 package com.llw.demo.service;
 
-import com.llw.demo.dto.AdminTokenDto;
+import com.llw.demo.transfer.AdminTokenDto;
 import com.llw.demo.entity.Admin;
 import com.happy.dto.PagingDto;
 

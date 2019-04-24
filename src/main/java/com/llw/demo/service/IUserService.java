@@ -1,6 +1,6 @@
 package com.llw.demo.service;
 
-import com.llw.demo.dto.UserWithWalletDto;
+import com.llw.demo.transfer.UserWithWalletDto;
 import com.llw.demo.entity.User;
 import com.happy.dto.PagingDto;
 
