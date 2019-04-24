@@ -1,8 +1,8 @@
 package com.llw.demo;
 
 import com.llw.demo.entity.Admin;
-import com.llw.express.code.BasicCodeGenerator;
-import com.llw.util.KeyGenerateUtil;
+import com.happy.express.code.BasicCodeGenerator;
+import com.happy.util.KeyGenerateUtil;
 
 import javax.persistence.*;
 import java.lang.annotation.Annotation;
