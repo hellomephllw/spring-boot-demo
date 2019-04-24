@@ -1,6 +1,6 @@
 package com.llw.demo.dto;
 
-import com.llw.base.BaseDto;
+import com.happy.base.BaseDto;
 import lombok.Data;
 
 import java.math.BigDecimal;

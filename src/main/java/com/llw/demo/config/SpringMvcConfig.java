@@ -17,7 +17,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.llw.exception")
+@ComponentScan("com.happy.exception")
 public class SpringMvcConfig implements WebMvcConfigurer {
 
     /**

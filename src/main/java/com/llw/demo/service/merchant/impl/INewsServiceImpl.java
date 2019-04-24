@@ -1,6 +1,5 @@
 package com.llw.demo.service.merchant.impl;
 
-import com.llw.demo.dao.merchant.INewsDao;
 import com.llw.demo.service.merchant.INewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class INewsServiceImpl implements INewsService {
 
-    @Autowired
-    private INewsDao newsDao;
+//    @Autowired
+//    private INewsDao newsDao;
 
 }

@@ -1,11 +1,12 @@
 package com.llw.demo.entity.merchant;
 
-import com.llw.base.BaseEntity;
+import com.happy.base.BaseEntity;
 import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.util.Date;
 
 /**
  * @description:
@@ -25,5 +26,7 @@ public class Shop extends BaseEntity {
     private String name;
     @Column(length = 50, nullable = false)
     private String address;
+    @Column
+    private Date createTime;
 
 }

@@ -1,6 +1,6 @@
 package com.llw.demo.constant;
 
-import com.llw.redis.RedisKeyAbstract;
+import com.happy.redis.RedisKeyAbstract;
 
 /**
  * @description: redis的key管理工具

@@ -1,7 +1,7 @@
 package com.llw.demo.service.impl;
 
 import com.llw.demo.service.IMailService;
-import com.llw.util.MailUtil;
+import com.happy.util.MailUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -23,17 +23,17 @@ public class IMailServiceImpl implements IMailService {
 
     @Override
     public void sendSimpleMail(String toAddr, String subject, String content) throws Exception {
-        MailUtil.sendSimpleMail(mailSender, fromAddr, toAddr, subject, content);
+        MailUtil.sendSimpleMail(mailSender, "", fromAddr, toAddr, subject, content);
     }
 
     @Override
     public void sendInlineResourceMail(String toAddr, String subject, String content) throws Exception {
-        MailUtil.sendInlineResourceMail(mailSender, fromAddr, toAddr, subject, content, "");
+        MailUtil.sendInlineResourceMail(mailSender, "", fromAddr, toAddr, subject, content, "");
     }
 
     @Override
     public void sendAttachmentsMail(String toAddr, String subject, String content) throws Exception {
-        MailUtil.sendAttachmentsMail(mailSender, fromAddr, toAddr, subject, content, "", "");
+        MailUtil.sendAttachmentsMail(mailSender, "", fromAddr, toAddr, subject, content, "", "");
     }
 
 }

@@ -3,8 +3,8 @@ package com.llw.demo.web.interceptor;
 import com.llw.demo.cache.AuthToken;
 import com.llw.demo.constant.CacheTimeConst;
 import com.llw.demo.service.IAuthTokenService;
-import com.llw.exception.BussinessException;
-import com.llw.redis.RedisAccess;
+import com.happy.exception.BusinessException;
+import com.happy.redis.RedisAccess;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -27,7 +27,7 @@ public class ManageAuthInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String token = request.getParameter("token");
         if (token == null || "".equals(token)) {
-            throw new BussinessException("缺少token");
+            throw new BusinessException("缺少token");
         }
 
         if (authTokenService.exist(token)) {
@@ -37,7 +37,7 @@ public class ManageAuthInterceptor implements HandlerInterceptor {
             return true;
         }
 
-        throw new BussinessException("token无效");
+        throw new BusinessException("token无效");
     }
 
     @Override

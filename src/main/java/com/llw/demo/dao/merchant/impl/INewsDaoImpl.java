@@ -1,10 +1,10 @@
 package com.llw.demo.dao.merchant.impl;
 
-import com.llw.base.BaseJpaDao;
+import com.happy.base.BaseJpaDao;
 import com.llw.demo.dao.merchant.INewsDao;
 import com.llw.demo.entity.merchant.News;
-import com.llw.dto.PagingDto;
-import com.llw.util.StringSql;
+import com.happy.dto.PagingDto;
+import com.happy.util.StringSql;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import java.util.List;
 /**
 * @description:
 * @author: liliwen
-* @date: 2018-11-27
+* @date: 2019-02-10
 */
 @Repository
 public class INewsDaoImpl extends BaseJpaDao<News> implements INewsDao {
@@ -30,17 +30,17 @@ public class INewsDaoImpl extends BaseJpaDao<News> implements INewsDao {
     }
 
     @Override
-    public void remove(long id) throws Exception {
+    public void remove(int id) throws Exception {
         super.deleteById(id);
     }
 
     @Override
-    public void removeByIds(List<Long> ids) throws Exception {
+    public void removeByIds(List<Integer> ids) throws Exception {
         super.deleteByIds(ids);
     }
 
     @Override
-    public void update(long id) throws Exception {
+    public void update(int id) throws Exception {
         super.execDml("update User set todo=?1 where id=?2", Arrays.asList(null, id).toArray());
     }
 
@@ -55,7 +55,7 @@ public class INewsDaoImpl extends BaseJpaDao<News> implements INewsDao {
     }
 
     @Override
-    public News get(long id) throws Exception {
+    public News get(int id) throws Exception {
         return super.findById(id);
     }
 
@@ -78,7 +78,7 @@ public class INewsDaoImpl extends BaseJpaDao<News> implements INewsDao {
     }
 
     @Override
-    public List<News> findByIds(List<Long> ids) throws Exception {
+    public List<News> findByIds(List<Integer> ids) throws Exception {
         return super.findByIds(ids);
     }
 

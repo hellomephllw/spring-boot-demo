@@ -1,10 +1,10 @@
 package com.llw.demo.dao.impl;
 
-import com.llw.base.BaseJpaDao;
+import com.happy.base.BaseJpaDao;
 import com.llw.demo.dao.IWalletDao;
 import com.llw.demo.entity.Wallet;
-import com.llw.dto.PagingDto;
-import com.llw.util.StringSql;
+import com.happy.dto.PagingDto;
+import com.happy.util.StringSql;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import java.util.List;
 /**
 * @description:
 * @author: liliwen
-* @date: 2018-11-22
+* @date: 2019-02-10
 */
 @Repository
 public class IWalletDaoImpl extends BaseJpaDao<Wallet> implements IWalletDao {
@@ -25,22 +25,22 @@ public class IWalletDaoImpl extends BaseJpaDao<Wallet> implements IWalletDao {
     }
 
     @Override
-    public void addBatch(List<Wallet> wallets) throws Exception {
-        super.saveBatch(wallets);
+    public void addBatch(List<Wallet> walletList) throws Exception {
+        super.saveBatch(walletList);
     }
 
     @Override
-    public void remove(long id) throws Exception {
+    public void remove(int id) throws Exception {
         super.deleteById(id);
     }
 
     @Override
-    public void removeByIds(List<Long> ids) throws Exception {
+    public void removeByIds(List<Integer> ids) throws Exception {
         super.deleteByIds(ids);
     }
 
     @Override
-    public void update(long id) throws Exception {
+    public void update(int id) throws Exception {
         super.execDml("update User set todo=?1 where id=?2", Arrays.asList(null, id).toArray());
     }
 
@@ -50,12 +50,12 @@ public class IWalletDaoImpl extends BaseJpaDao<Wallet> implements IWalletDao {
     }
 
     @Override
-    public void update(List<Wallet> wallets) throws Exception {
-        super.updateBatch(wallets);
+    public void update(List<Wallet> walletList) throws Exception {
+        super.updateBatch(walletList);
     }
 
     @Override
-    public Wallet get(long id) throws Exception {
+    public Wallet get(int id) throws Exception {
         return super.findById(id);
     }
 
@@ -78,7 +78,7 @@ public class IWalletDaoImpl extends BaseJpaDao<Wallet> implements IWalletDao {
     }
 
     @Override
-    public List<Wallet> findByIds(List<Long> ids) throws Exception {
+    public List<Wallet> findByIds(List<Integer> ids) throws Exception {
         return super.findByIds(ids);
     }
 

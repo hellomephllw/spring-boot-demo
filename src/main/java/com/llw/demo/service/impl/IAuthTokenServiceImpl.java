@@ -2,8 +2,8 @@ package com.llw.demo.service.impl;
 
 import com.llw.demo.cache.AuthToken;
 import com.llw.demo.service.IAuthTokenService;
-import com.llw.exception.BussinessException;
-import com.llw.redis.RedisAccess;
+import com.happy.exception.BusinessException;
+import com.happy.redis.RedisAccess;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +35,7 @@ public class IAuthTokenServiceImpl implements IAuthTokenService {
         if (redisAccess.existObject(token)) {
             redisAccess.expireObject(token, durationSecond);
         } else {
-            throw new BussinessException("不存在的token");
+            throw new BusinessException("不存在的token");
         }
 
         return redisAccess.getObject(token, AuthToken.class);

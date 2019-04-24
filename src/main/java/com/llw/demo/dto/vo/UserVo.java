@@ -1,6 +1,6 @@
 package com.llw.demo.dto.vo;
 
-import com.llw.base.BaseVo;
+import com.happy.base.BaseVo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

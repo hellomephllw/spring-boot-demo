@@ -21,7 +21,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  */
 @Configuration
 @EnableCaching
-@ComponentScan("com.llw.redis")
+@ComponentScan("com.happy.redis")
 public class RedisConfig extends CachingConfigurerSupport {
 
     /**

@@ -1,21 +1,21 @@
 package com.llw.demo.dao.impl;
 
-import com.llw.base.BaseJpaDao;
+import com.happy.base.BaseJpaDao;
 import com.llw.demo.dao.IAdminDao;
 import com.llw.demo.entity.Admin;
-import com.llw.dto.PagingDto;
-import com.llw.util.StringSql;
+import com.happy.dto.PagingDto;
+import com.happy.util.StringSql;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Arrays;
 import java.util.List;
 
 /**
- * @description:
- * @author: llw
- * @date: 2018-11-16
- */
+* @description:
+* @author: liliwen
+* @date: 2019-02-10
+*/
 @Repository
 public class IAdminDaoImpl extends BaseJpaDao<Admin> implements IAdminDao {
 
@@ -25,46 +25,61 @@ public class IAdminDaoImpl extends BaseJpaDao<Admin> implements IAdminDao {
     }
 
     @Override
-    public Admin get(long id) throws Exception {
+    public void addBatch(List<Admin> adminList) throws Exception {
+        super.saveBatch(adminList);
+    }
+
+    @Override
+    public void remove(int id) throws Exception {
+        super.deleteById(id);
+    }
+
+    @Override
+    public void removeByIds(List<Integer> ids) throws Exception {
+        super.deleteByIds(ids);
+    }
+
+    @Override
+    public void update(int id) throws Exception {
+        super.execDml("update User set todo=?1 where id=?2", Arrays.asList(null, id).toArray());
+    }
+
+    @Override
+    public void update(Admin admin) throws Exception {
+        super.update(admin);
+    }
+
+    @Override
+    public void update(List<Admin> adminList) throws Exception {
+        super.updateBatch(adminList);
+    }
+
+    @Override
+    public Admin get(int id) throws Exception {
         return super.findById(id);
     }
 
     @Override
-    public Admin findByAccountAndPassword(String account, String password) throws Exception {
-
-        List<Admin> admins = super.findQuick(" and account=?1 and password=?2", account, password);
-
-        return admins.size() != 0 ? admins.get(0) : null;
-    }
-
-    @Override
-    public List<Admin> findByAccount(String account) throws Exception {
-        return super.findQuick(" and account=?1", account);
-    }
-
-    @Override
-    public PagingDto<Admin> query(int pageNo, int pageSize, String name, Boolean active, Date beginCreateTime, Date endCreateTime) throws Exception {
+    public PagingDto<Admin> query(int pageNo, int pageSize) throws Exception {
         StringSql jpql = new StringSql();
         List<Object> params = new ArrayList<>();
 
-        if (name != null && !"".equals(name)) {
-            jpql.add(" and name like ?");
-            params.add("%" + name + "%");
-        }
-        if (active != null) {
-            jpql.add(" and active=?");
-            params.add(active);
-        }
-        if (beginCreateTime != null) {
-            jpql.add(" and createTime>=?");
-            params.add(beginCreateTime);
-        }
-        if (endCreateTime != null) {
-            jpql.add(" and createTime<=?");
-            params.add(endCreateTime);
+        if (pageNo == -1) {
+            jpql.add(" and todo=?");
+            params.add("");
         }
 
         return super.pagingQuickIdDesc(jpql.toString(), pageNo, pageSize, params.toArray());
+    }
+
+    @Override
+    public List<Admin> findAll() throws Exception {
+        return super.findQuickIdDesc("");
+    }
+
+    @Override
+    public List<Admin> findByIds(List<Integer> ids) throws Exception {
+        return super.findByIds(ids);
     }
 
 }

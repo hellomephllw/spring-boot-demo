@@ -1,6 +1,6 @@
 package com.llw.demo.entity;
 
-import com.llw.base.BaseEntity;
+import com.happy.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;

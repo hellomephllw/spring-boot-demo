@@ -1,6 +1,6 @@
 package com.llw.demo.entity.merchant;
 
-import com.llw.base.BaseEntity;
+import com.happy.base.BaseEntity;
 import lombok.*;
 
 import javax.persistence.Column;

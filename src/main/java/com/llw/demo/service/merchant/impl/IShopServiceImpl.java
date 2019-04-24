@@ -1,6 +1,5 @@
 package com.llw.demo.service.merchant.impl;
 
-import com.llw.demo.dao.merchant.IShopDao;
 import com.llw.demo.service.merchant.IShopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class IShopServiceImpl implements IShopService {
 
-    @Autowired
-    private IShopDao shopDao;
+//    @Autowired
+//    private IShopDao shopDao;
 
 }
