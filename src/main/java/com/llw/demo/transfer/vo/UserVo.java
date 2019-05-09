@@ -4,6 +4,7 @@ import com.happy.base.BaseVo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @description:
@@ -12,6 +13,7 @@ import lombok.Data;
  */
 @ApiModel(value = "管理端-用户值对象")
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class UserVo extends BaseVo {
 
     @ApiModelProperty(value = "姓名")

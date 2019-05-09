@@ -8,7 +8,7 @@ import lombok.ToString;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * @description:
@@ -23,7 +23,7 @@ import java.sql.Date;
 public class Admin extends BaseEntity {
 
     @Column
-    private Date createTime;//在数据库时间都默认存储为timestamp
+    private Date createTime;//在数据库时间都默认存储为datetime
     @Column
     private boolean active = false;//指定默认值
     @Column(length = 25, nullable = false)

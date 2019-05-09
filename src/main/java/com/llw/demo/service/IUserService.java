@@ -15,13 +15,13 @@ public interface IUserService {
 
     public void add(String name) throws Exception;
 
-    public void remove(long id) throws Exception;
+    public void remove(int id) throws Exception;
 
-    public void modify(long id, String name) throws Exception;
+    public void modify(int id, String name) throws Exception;
 
-    public void modifyWithLock(long id, String name) throws Exception;
+    public void modifyWithLock(int id, String name) throws Exception;
 
-    public User get(long id) throws Exception;
+    public User get(int id) throws Exception;
 
     public List<User> findAll() throws Exception;
 

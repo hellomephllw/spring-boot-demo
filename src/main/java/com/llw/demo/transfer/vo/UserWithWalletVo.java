@@ -4,6 +4,7 @@ import com.happy.base.BaseVo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.math.BigDecimal;
 
@@ -14,6 +15,7 @@ import java.math.BigDecimal;
  */
 @ApiModel(value = "管理端-用户钱包值对象")
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class UserWithWalletVo extends BaseVo {
 
     @ApiModelProperty(value = "姓名")

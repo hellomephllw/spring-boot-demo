@@ -44,7 +44,7 @@ public class UserController {
 
     @ApiOperation(value = "删除", response = ResultVo.class)
     @PostMapping("/remove")
-    public ResultVo remove(@RequestParam long id) throws Exception {
+    public ResultVo remove(@RequestParam int id) throws Exception {
 
         userService.remove(id);
 
@@ -53,7 +53,7 @@ public class UserController {
 
     @ApiOperation(value = "修改", response = ResultVo.class)
     @PostMapping("/modify")
-    public ResultVo modify(@RequestParam long id,
+    public ResultVo modify(@RequestParam int id,
                            @RequestParam String name) throws Exception {
 
         userService.modify(id, name);
@@ -63,7 +63,7 @@ public class UserController {
 
     @ApiOperation(value = "获取用户", response = UserVo.class)
     @PostMapping("/get")
-    public ResultVo get(@RequestParam long id) throws Exception {
+    public ResultVo get(@RequestParam int id) throws Exception {
 
         return new ResultVo<>(1, "", ObjectUtil.transferObjectValToAnother(userService.get(id), UserVo.class));
     }

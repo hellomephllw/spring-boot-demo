@@ -1,11 +1,8 @@
 package com.llw.demo;
 
 import com.llw.demo.dao.*;
-import com.llw.demo.service.IAdminService;
 import com.llw.demo.service.IMailService;
-import com.llw.demo.service.IUserService;
 import com.happy.redis.RedisAccess;
-import com.happy.util.CollectionUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +17,6 @@ import java.util.Map;
 @SpringBootTest
 public class DemoApplicationTests {
 
-	@Autowired
-	private IUserService userService;
-	@Autowired
-	private IAdminService adminService;
 	@Autowired
 	private IAdminDao adminDao;
 	@Autowired
@@ -41,9 +34,7 @@ public class DemoApplicationTests {
 	@Test
 	public void contextLoads() {
 		try {
-//			mailService.sendSimpleMail("hellomephllw@163.com", "测试主题1", "测试的邮件内容");
-//			mailService.sendAttachmentsMail("hellomephllw@163.com", "测试主题2", "测试的邮件内容");
-//			mailService.sendInlineResourceMail("hellomephllw@163.com", "测试主题3", "测试的邮件内容");
+			adminDao.findAll();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

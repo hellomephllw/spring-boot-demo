@@ -4,6 +4,7 @@ import com.happy.base.BaseVo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.Date;
 
@@ -14,6 +15,7 @@ import java.util.Date;
  */
 @ApiModel(value = "管理端-管理员值对象")
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class AdminVo extends BaseVo {
 
     @ApiModelProperty(value = "账号")
