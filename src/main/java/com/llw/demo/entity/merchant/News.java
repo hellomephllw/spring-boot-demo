@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Table(name = "demo_new")
 @Data
 @ToString(callSuper = true)
-@EqualsAndHashCode(callSuper=true)
+@EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class News extends BaseEntity {

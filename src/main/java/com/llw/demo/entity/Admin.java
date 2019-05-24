@@ -19,7 +19,7 @@ import java.util.Date;
 @Table(name = "demo_admin")
 @Data
 @ToString(callSuper = true)
-@EqualsAndHashCode(callSuper=true)
+@EqualsAndHashCode(callSuper = true)
 public class Admin extends BaseEntity {
 
     @Column

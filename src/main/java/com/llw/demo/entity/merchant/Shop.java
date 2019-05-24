@@ -17,7 +17,7 @@ import java.util.Date;
 @Table(name = "demo_shop")
 @Data
 @ToString(callSuper = true)
-@EqualsAndHashCode(callSuper=true)
+@EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class Shop extends BaseEntity {

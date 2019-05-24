@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Table(name = "demo_user")
 @Data
 @ToString(callSuper = true)
-@EqualsAndHashCode(callSuper=true)
+@EqualsAndHashCode(callSuper = true)
 public class User extends BaseEntity {
 
     @Column(length = 30, nullable = false)

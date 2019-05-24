@@ -17,7 +17,7 @@ import java.math.BigDecimal;
 @Table(name = "demo_wallet")
 @Data
 @ToString(callSuper = true)
-@EqualsAndHashCode(callSuper=true)
+@EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class Wallet extends BaseEntity {

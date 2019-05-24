@@ -5,22 +5,9 @@ import com.llw.demo.dao.IAdminDao;
 import com.llw.demo.entity.Admin;
 import com.happy.dto.PagingDto;
 import com.happy.util.StringSql;
-import com.llw.demo.transfer.po.AdminPo;
-import org.hibernate.SQLQuery;
-import org.hibernate.query.NativeQuery;
-import org.hibernate.query.internal.NativeQueryImpl;
-import org.hibernate.query.spi.NativeQueryImplementor;
-import org.hibernate.transform.Transformers;
-import org.hibernate.type.DateType;
-import org.hibernate.type.LocalDateTimeType;
-import org.hibernate.type.StandardBasicTypes;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.Query;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
 * @description:
@@ -86,14 +73,6 @@ public class IAdminDaoImpl extends BaseJpaDao<Admin> implements IAdminDao {
     @SuppressWarnings("deprecation")
     @Override
     public List<Admin> findAll() throws Exception {
-        Query query = super.entityManager.createNativeQuery("select * from demo_admin");
-        query
-                .unwrap(NativeQuery.class)
-                .addScalar("create_time", DateType.INSTANCE)
-                .setResultTransformer(Transformers.aliasToBean(AdminPo.class));
-
-        System.out.println(query.getResultList());
-
         return super.findQuickIdDesc("");
     }
 
