@@ -26,7 +26,7 @@ repositories {
 }
 
 project.ext {
-	happyDevVersion = '2.0.4'
+	happyDevVersion = '2.0.5'
 	aliJsonVersion = '1.1.15'
 	swaggerVersion = '2.9.2'
 	janinoVersion = '2.6.1'

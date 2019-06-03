@@ -1,7 +1,9 @@
 package com.llw.demo.dao;
 
+import com.happy.dto.po.PagingPo;
 import com.llw.demo.entity.User;
 import com.happy.dto.PagingDto;
+import com.llw.demo.transfer.UserDto;
 
 import java.util.List;
 
@@ -33,5 +35,9 @@ public interface IUserDao {
     public List<User> findAll() throws Exception;
 
     public List<User> findByIds(List<Integer> ids) throws Exception;
+
+    public List<UserDto> findByNameAndAge(String name, int age) throws Exception;
+
+    public PagingPo<UserDto> queryForDto(int pageNo, int pageSize, String name, String nickname, Integer age, String detailAddress) throws Exception;
 
 }

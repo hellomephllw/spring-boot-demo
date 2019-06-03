@@ -5,6 +5,7 @@ import com.happy.exception.BusinessException;
 import com.llw.demo.dao.IUserDao;
 import com.llw.demo.entity.User;
 import com.llw.demo.service.IUserService;
+import com.llw.demo.transfer.UserDto;
 import com.llw.demo.transfer.UserWithWalletDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -86,4 +87,8 @@ public class IUserServiceImpl implements IUserService {
         return null;
     }
 
+    @Override
+    public List<UserDto> findByNameAndAge(String name, Integer age) throws Exception {
+        return userDao.findByNameAndAge(name, age);
+    }
 }

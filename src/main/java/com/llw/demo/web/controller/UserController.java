@@ -1,6 +1,7 @@
 package com.llw.demo.web.controller;
 
 import com.happy.base.ResultVo;
+import com.llw.demo.transfer.UserDto;
 import com.llw.demo.transfer.UserWithWalletDto;
 import com.llw.demo.transfer.vo.UserVo;
 import com.llw.demo.transfer.vo.UserWithWalletVo;
@@ -101,6 +102,14 @@ public class UserController {
         }
 
         return new ResultVo<>(1, "", userWithWalletVos);
+    }
+
+    @ApiOperation(value = "根据名字和年龄查找", response = UserDto.class, responseContainer = "List")
+    @PostMapping("/findByNameAndAge")
+    public ResultVo findByNameAndAge(@RequestParam(required = false) String name,
+                                     @RequestParam(required = false) Integer age) throws Exception {
+
+        return new ResultVo<>(1, "", userService.findByNameAndAge(name, age));
     }
 
 }

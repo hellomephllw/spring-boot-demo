@@ -36,7 +36,8 @@ public class DemoApplicationTests {
 	@Test
 	public void contextLoads() {
 		try {
-			adminDao.findAll();
+			System.out.println(userDao.queryForDto(1, 10, null, null, null, null));
+			System.out.println(userDao.findByNameAndAge("owen", 0));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
